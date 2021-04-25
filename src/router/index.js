@@ -1,25 +1,21 @@
 import VueRouter from 'vue-router'
 
-import home from '@/views/home/index'
-import library from '@/views/library/index'
-import search from '@/views/search/index'
-
 export default new VueRouter({
   routes: [
     {
       path: '/',
       name: 'home',
-      component: home
+      component: () => import('../views/home/index')
     },
     {
       path: '/library',
       name: 'library',
-      component: library
+      component: () => import('../views/library/index')
     },
     {
       path: '/search',
       name: 'search',
-      component: search
-    },
+      component: () => import('../views/search/index')
+    }
   ]
 })
