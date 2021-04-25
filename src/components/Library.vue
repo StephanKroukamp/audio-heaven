@@ -1,8 +1,8 @@
 <template>
-  <v-container>
+   <v-container>
     <v-row>
       <v-col>
-        Search Page
+        <h1>Library</h1>
       </v-col>
     </v-row>
   </v-container>
@@ -10,6 +10,6 @@
 
 <script>
   export default {
-    name: 'search'
+    name: 'Library'
   }
 </script>

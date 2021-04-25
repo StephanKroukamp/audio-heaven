@@ -22,6 +22,7 @@
 
 <script>
   export default {
+    name: 'BottomNavigation',
     data () {
       return {
         value: 1,

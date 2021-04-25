@@ -1,13 +1,23 @@
 import Vue from 'vue'
+import firebase from 'firebase/app';
+
 import App from './App.vue'
-import VueRouter from 'vue-router'
+
 import router from './router'
+
 import vuetify from './plugins/vuetify';
-import { firestorePlugin } from 'vuefire'
 
-Vue.use(firestorePlugin)
+var firebaseConfig = {
+  apiKey: "AIzaSyBXfEiv-rSpiffqhsTB5KdVaUZF4AOZerA",
+  authDomain: "audio-heaven.firebaseapp.com",
+  projectId: "audio-heaven",
+  storageBucket: "audio-heaven.appspot.com",
+  messagingSenderId: "969900857463",
+  appId: "1:969900857463:web:a702ca7104dd886b750e72",
+  measurementId: "G-YSVETTD6PZ"
+};
 
-Vue.use(VueRouter)
+firebase.initializeApp(firebaseConfig);
 
 Vue.config.productionTip = false
 

@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import AppBar from './components/AppBar'
-import BottomNavigation from './components/BottomNavigation'
+import AppBar from './components/main/AppBar'
+import BottomNavigation from './components/main/BottomNavigation'
 
 export default {
   name: 'App',
