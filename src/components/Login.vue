@@ -38,6 +38,7 @@
         <v-col/>
         <v-col>
           <v-btn
+            color='primary'
             type='submit'
           >
             Login
@@ -53,27 +54,25 @@
 import firebase from 'firebase/app';
 
 export default {
-    name: 'Login',
-    data() {
-        return {
-            email: 'johndoe@gmail.com',
-            password: 'xyz123'
-        }
-    },
-    methods: {
-        login: function () {
-            firebase
-            .auth()
-            .signInWithEmailAndPassword(this.email, this.password)
-            .then(() => {
-                console.log('Successfully logged in');
-                
-                this.$router.push('/dashboard');
-            })
-            .catch(error => {
-                alert(error.message);
-            });
-        }
+  name: 'Login',
+  data() {
+    return {
+      email: 'johndoe@gmail.com',
+      password: 'xyz123'
     }
+  },
+  methods: {
+    login: function () {
+      firebase
+      .auth()
+      .signInWithEmailAndPassword(this.email, this.password)
+      .then(() => {
+        this.$router.push('/library');
+      })
+      .catch(error => {
+          alert(error.message);
+      });
+    }
+  }
 }
 </script>

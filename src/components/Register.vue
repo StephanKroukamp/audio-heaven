@@ -38,6 +38,7 @@
         <v-col/>
         <v-col>
           <v-btn
+            color='primary'
             type='submit'
           >
             Register

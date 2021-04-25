@@ -13,7 +13,10 @@ const routes = [
     {
         path: '/library',
         name: 'Library',
-        component: () => import('../components/Library')
+        component: () => import('../components/Library'),
+        meta: {
+            authRequired: true,
+        }
     },
     {
         path: '/login',
@@ -45,7 +48,7 @@ router.beforeEach((to, from, next) => {
         } else {
             alert('You must be logged in to see this page');
             next({
-                path: '/',
+                path: '/login',
             });
         }
     } else {
