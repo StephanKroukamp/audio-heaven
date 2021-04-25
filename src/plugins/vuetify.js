@@ -1,10 +1,20 @@
-import Vue from 'vue';
-import Vuetify from 'vuetify/lib/framework';
+import Vue from 'vue'
+import Vuetify from 'vuetify'
+import 'vuetify/dist/vuetify.min.css'
 
-Vue.use(Vuetify);
+import colors from 'vuetify/lib/util/colors'
 
-export default new Vuetify({
+Vue.use(Vuetify)
+
+const opts = {
     theme: {
-        dark: true
+        dark: true,
+        themes: {
+            dark: {
+                primary: colors.indigo.darken1
+            }
+        }
     }
-});
+}
+
+export default new Vuetify(opts)

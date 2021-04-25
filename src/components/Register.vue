@@ -1,30 +1,35 @@
 <template>
-  <v-container>
+  <v-container 
+    fluid
+    align-content='center'
+  >
     <v-row>
+      <v-col/>
       <v-col>
         <h1>Register</h1>
       </v-col>
+      <v-col/>
     </v-row>
 
     <v-row>
       <v-col>
-        <v-form @submit.prevent="submit">
+        <v-form @submit.prevent='submit'>
             <v-text-field
-                v-model="email"
-                label="Email"
-                type="email"
+                v-model='email'
+                label='Email'
+                type='email'
                 required
             />
             
             <v-text-field
-                v-model="password"
-                label="Password"
-                type="password"
+                v-model='password'
+                label='Password'
+                type='password'
                 required
             />
 
             <v-btn
-                type="submit"
+                type='submit'
             >
                 submit
             </v-btn>
