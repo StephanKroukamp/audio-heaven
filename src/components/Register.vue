@@ -51,29 +51,21 @@
 </template>
 
 <script>
-import firebase from 'firebase/app';
+import { mapActions } from 'vuex';
 
 export default {
-    name: 'Register',
-    data() {
-        return {
-            email: 'johndoe@gmail.com',
-            password: 'xyz123'
-        }
-    },
-    methods: {
-        register: function () {
-            firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.email, this.password)
-            .then(() => {
-                console.log('Successfully registered! Please login.');
-                this.$router.push('/');
-            })
-            .catch(error => {
-                console.log(error.message);
-            });
-        }
+  name: 'Register',
+  data() {
+    return {
+      email: 'johndoe@gmail.com',
+      password: 'xyz123'
     }
+  },
+  methods: {
+    ...mapActions(['signUpAction']),
+    register() {
+      this.signUpAction({ email: this.email, password: this.password });
+    }
+  }
 }
 </script>

@@ -2,30 +2,50 @@
   <v-app-bar
     app
   >
-    <v-toolbar-title>Audio Heaven</v-toolbar-title>
-
-    <v-spacer/>
-
-    <v-btn
-      icon
-      x-large
+    <v-tabs
+      centered
     >
-      <v-avatar
-        color="primary"
+      <v-tab
+        v-for='link in links'
+        :key='link.title'
+        :to='link.to'
       >
-        <span class="headline">CJ</span>
-      </v-avatar>
-    </v-btn>
+        <v-icon>{{link.icon}}</v-icon>
+      </v-tab>
+    </v-tabs>
+
+    <v-avatar
+      v-if='isUserAuth'
+      color='primary'
+    />
   </v-app-bar>
 </template>
 
 <script>
 import firebase from 'firebase/app';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'AppBar',
   data () {
     return {
+      links: [
+        {
+          title: 'Home',
+          to: '/',
+          icon: 'mdi-home'
+        },
+        {
+          title: 'Search',
+          to: '/search',
+          icon: 'mdi-magnify'
+        },
+        {
+          title: 'Library',
+          to: '/library',
+          icon: 'mdi-book-open-page-variant'
+        }
+      ]
     }
   },
   methods: {
@@ -42,6 +62,9 @@ export default {
         this.$router.push('/');
       });
     }
+  },
+  computed: {
+    ...mapGetters(['getUser', 'isUserAuth'])
   }
 }
 </script>

@@ -52,6 +52,7 @@
 
 <script>
 import firebase from 'firebase/app';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: 'Login',
@@ -61,7 +62,11 @@ export default {
       password: 'xyz123'
     }
   },
+  mounted() {
+    this.authAction();
+  },
   methods: {
+    ...mapActions(["authAction"]),
     login: function () {
       firebase
       .auth()
@@ -73,6 +78,9 @@ export default {
           alert(error.message);
       });
     }
+  },
+  computed: {
+    ...mapGetters(["getUser", "isUserAuth"])
   }
 }
 </script>
