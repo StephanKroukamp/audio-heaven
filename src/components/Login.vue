@@ -11,31 +11,41 @@
       <v-col/>
     </v-row>
 
-    <v-row>
-      <v-col>
-        <v-form @submit.prevent='submit'>
-            <v-text-field
-                v-model='email'
-                label='Email'
-                type='email'
-                required
-            />
-            
-            <v-text-field
-                v-model='password'
-                label='Password'
-                type='password'
-                required
-            />
-
-            <v-btn
-                type='submit'
-            >
-                submit
-            </v-btn>
-        </v-form>
-      </v-col>
-    </v-row>
+    <v-form @submit.prevent='login'>
+      <v-row>
+        <v-col>
+          <v-text-field
+              v-model='email'
+              label='Email'
+              type='email'
+              required
+          />
+        </v-col>
+      </v-row>
+        
+      <v-row>
+        <v-col>
+          <v-text-field
+            v-model='password'
+            label='Password'
+            type='password'
+            required
+          />
+        </v-col>
+      </v-row>
+      
+      <v-row>
+        <v-col/>
+        <v-col>
+          <v-btn
+            type='submit'
+          >
+            Login
+          </v-btn>
+        </v-col>
+        <v-col/>
+      </v-row>
+    </v-form>
   </v-container>
 </template>
 
@@ -51,7 +61,7 @@ export default {
         }
     },
     methods: {
-        submit: function () {
+        login: function () {
             firebase
             .auth()
             .signInWithEmailAndPassword(this.email, this.password)
